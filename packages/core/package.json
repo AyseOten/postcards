@@ -8,6 +8,11 @@
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "generate:countries": "node scripts/generate-countries.mjs && prettier --write src/countries/data.generated.ts"
+  },
+  "devDependencies": {
+    "countries-list": "3.4.1",
+    "i18n-iso-countries": "7.14.0"
   }
 }
