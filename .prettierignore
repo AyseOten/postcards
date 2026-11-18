@@ -3,3 +3,5 @@ pnpm-lock.yaml
 .turbo
 coverage
 *.md
+# Stitch exports, kept as generated
+docs/design

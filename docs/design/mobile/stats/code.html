@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-fixed":"#2f1400","surface-container-lowest":"#ffffff","primary-fixed":"#ffdbd2","on-primary-fixed":"#3c0800","surface-bright":"#fbf9f6","outline-variant":"#dbc1ba","on-secondary-fixed":"#001e2c","surface":"#fbf9f6","tertiary-fixed-dim":"#ffb780","secondary-fixed-dim":"#8bcff6","surface-dim":"#dbdad7","inverse-primary":"#ffb4a1","outline":"#88726d","inverse-on-surface":"#f2f0ed","primary-container":"#e07a5f","surface-tint":"#9a442d","surface-variant":"#e4e2df","on-tertiary-container":"#4c2500","on-surface-variant":"#55423e","error-container":"#ffdad6","on-surface":"#1b1c1a","secondary":"#116588","secondary-container":"#94d7ff","tertiary-container":"#d18547","background":"#fbf9f6","on-secondary-fixed-variant":"#004c69","secondary-fixed":"#c4e7ff","on-tertiary":"#ffffff","primary":"#9a442d","on-primary":"#ffffff","primary-fixed-dim":"#ffb4a1","tertiary":"#8e4e14","error":"#ba1a1a","on-error-container":"#93000a","on-background":"#1b1c1a","tertiary-fixed":"#ffdcc4","surface-container-low":"#f5f3f0","on-secondary":"#ffffff","on-primary-container":"#5b1604","on-secondary-container":"#005f81","surface-container":"#efeeeb","surface-container-highest":"#e4e2df","on-error":"#ffffff","inverse-surface":"#30312f","on-tertiary-fixed-variant":"#6f3800","surface-container-high":"#eae8e5","on-primary-fixed-variant":"#7c2e19"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","gutter-mobile":"0.75rem","margin-mobile":"1rem","gutter":"1.25rem","space-sm":"0.5rem","margin":"2rem","space-lg":"1.5rem","space-xl":"2.25rem","space-xs":"0.25rem"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"700"}],"title-md":["17px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(90,70,50,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Postcards Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcPc5SGZ_idSRk6ZGJcVZ47imqT4xOrOpXNmkNpyFkeIA12wKZaJDg2iIUDJQqYd_5Vz8Qv5Gvpf4afSj_PiC5-F67QFCVkXp_VokHpQByV9BHbLrUT18NwD_ISpzuAHOOAAbTX0Nd5Yqvm5GoKK7fvrlnCcUHGQNA2ji9CqeaEpyiFZDvP2p9s8W1-FyhAl595by4SFlm5K9_g0CAurW9yOcTmLYuBEliKpnypw"/><div class="flex flex-col truncate"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface tracking-tight leading-none">Postcards</span><span class="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[9px] uppercase tracking-wider leading-none">TR</span></div><span class="font-label-sm text-[10px] text-on-surface-variant truncate">@postcards.fromworld</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Tema Değiştir" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low" type="button"><span class="material-symbols-outlined text-[22px]">light_mode</span></button><button aria-label="Profil Menüsü" class="w-11 h-11 flex items-center justify-center rounded-full transition-transform active:scale-95" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(90,70,50,0.12)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4sDdoBbsEsRix4l-Add8PzIxCmcWJLAyMaUsQ7pRWNMbwMlK-8rLgNXZUJlX0yRCNgiduH4nGt9yvbzZs15TF2jZlhje66B_RrWS3wYpbfO5Cx1tRNnT0HMlqvYKAFJK-Ih913G68PwXfPoUdkLlLhPeNBGyGeI1Uvj2ZMofIaAHMuz8aE1_LeonqIjQ2CUL8LppNYi5_ke6nxpzozAeW0lDcgCkkT304naAHsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin-mobile pb-space-lg space-y-space-md">
+<!-- Gezgin Profili Hero Card (Tactile Stationery Feel) -->
+<section class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-[0_8px_24px_-4px_rgba(90,70,50,0.08)] overflow-hidden">
+<!-- Postmark Cancel Mark Decorative SVG -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 opacity-15 pointer-events-none text-primary transform rotate-12">
+<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="46" stroke-dasharray="4 2"></circle>
+<circle cx="50" cy="50" r="38"></circle>
+<circle cx="50" cy="50" r="28"></circle>
+<path d="M15 45 H85 M10 50 H90 M15 55 H85" stroke-width="1.2"></path>
+<text fill="currentColor" font-size="7" font-weight="bold" letter-spacing="1" text-anchor="middle" x="50" y="36">POSTCARDS AIRMAIL</text>
+<text fill="currentColor" font-size="6" font-weight="bold" text-anchor="middle" x="50" y="68">GLOBAL TRAVELS</text>
+</svg>
+</div>
+<!-- User Header Row -->
+<div class="flex items-center gap-space-sm relative z-10">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover shadow-[0_3px_10px_rgba(90,70,50,0.14)]" data-alt="Close up warm vintage style aesthetic portrait photo of a cheerful traveler smiling outdoors with a camera strap, natural golden hour warm light, terracotta and sun-bleached tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpYxx6NR-ZK22xp0pmPXLu5TKUizQHTDXqPNTEwNF1u98NFr41bk-0587ratctHOVVmtx568WdymPt0QVyUq2i_RgmiMbTFk9fpZFMTbWdMu9Vz-6c3Z_0igDj5DqaY4CH5c1aqb6NUyTpyk-zuE1d_WqCUk8mdlIEYipLT1y3frnQAeKkbGR4Hlv4AMkhIO1kuoAom__i83tGNCRoTSileWgEu2dZua3ZdhnkuA"/>
+<span class="absolute -bottom-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full bg-primary-container text-surface-container-lowest text-label-sm shadow-sm font-label-sm">
+          ★
+        </span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Gezgin Profili</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Aktif</span>
+</div>
+<p class="font-title-md text-title-md text-primary font-bold flex items-center gap-1 mt-0.5 truncate">
+          Tutkulu Kaşif 🧭
+        </p>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">
+          Dünya günlüğü • 8 yıldır yollarda
+        </p>
+</div>
+</div>
+<!-- Travel Level Snapshot Pill -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Mevcut Seviye</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Seviye 4: Kıtalararası Gezgin</span>
+</div>
+</div>
+<span class="font-label-md text-label-md bg-tertiary-fixed text-on-tertiary-fixed px-2 py-1 rounded-full font-bold">
+        24/30
+      </span>
+</div>
+</section>
+<!-- Big 2x2 Key Metric Grid -->
+<section class="grid grid-cols-2 gap-space-sm">
+<!-- Card 1: Ziyaret Edilen Ülke -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant leading-tight">Ziyaret Edilen</span>
+<span class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">public</span>
+</span>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">24</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">ülke</span>
+</div>
+<!-- Circular Mini Gauge & % -->
+<div class="flex items-center gap-2 pt-1">
+<div class="relative w-8 h-8 shrink-0">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="12, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-[8px] font-bold text-on-surface">12%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Dünyanın %12'si</span>
+</div>
+</div>
+<!-- Card 2: Yaşanan Ülkeler -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant leading-tight">Yaşanan Ülke</span>
+<span class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">cottage</span>
+</span>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-secondary font-bold tracking-tight">2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">yerleşik</span>
+</div>
+<!-- Countries List Tags -->
+<div class="flex items-center gap-1 flex-wrap pt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">
+          Türkiye 🇹🇷
+        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">
+          İspanya 🇪🇸
+        </span>
+</div>
+</div>
+<!-- Card 3: Kıtalar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant leading-tight">Kıtalar</span>
+<span class="w-7 h-7 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+</span>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-tertiary font-bold tracking-tight">4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">/ 7 kıta</span>
+</div>
+<!-- 7 Continents mini dot/bar indicators -->
+<div class="pt-1 flex items-center gap-1.5" title="Avrupa, Asya, Afrika, Amerika tamamlandı">
+<span class="w-3 h-3 rounded-full bg-tertiary flex items-center justify-center text-[7px] text-surface font-bold">1</span>
+<span class="w-3 h-3 rounded-full bg-tertiary flex items-center justify-center text-[7px] text-surface font-bold">2</span>
+<span class="w-3 h-3 rounded-full bg-tertiary flex items-center justify-center text-[7px] text-surface font-bold">3</span>
+<span class="w-3 h-3 rounded-full bg-tertiary flex items-center justify-center text-[7px] text-surface font-bold">4</span>
+<span class="w-3 h-3 rounded-full bg-surface-container-high"></span>
+<span class="w-3 h-3 rounded-full bg-surface-container-high"></span>
+<span class="w-3 h-3 rounded-full bg-surface-container-high"></span>
+</div>
+</div>
+<!-- Card 4: İstek Listesi -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant leading-tight">İstek Listesi</span>
+<span class="w-7 h-7 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</span>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">ülke</span>
+</div>
+<div class="flex items-center gap-1 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">flight_takeoff</span>
+          Rotada bekliyor
+        </span>
+</div>
+</div>
+</section>
+<!-- Deep Dive Breakdown 1: En Çok Ziyaret Edilen Kıta -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">donut_large</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Kıta Dağılımı</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">24 ülke toplamı</span>
+</div>
+<!-- Stacked Master Bar -->
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex shadow-inner">
+<div class="h-full bg-primary-container" style="width: 65%;" title="Avrupa %65"></div>
+<div class="h-full bg-secondary" style="width: 20%;" title="Asya %20"></div>
+<div class="h-full bg-tertiary-container" style="width: 10%;" title="Afrika %10"></div>
+<div class="h-full bg-outline-variant" style="width: 5%;" title="Amerika %5"></div>
+</div>
+<!-- Segment Breakdown Rows -->
+<div class="space-y-2 pt-1">
+<!-- Avrupa -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-full bg-primary-container shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Avrupa</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(16 Ülke)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 65%;"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold w-9 text-right">%65</span>
+</div>
+</div>
+<!-- Asya -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-full bg-secondary shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Asya</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(5 Ülke)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 20%;"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold w-9 text-right">%20</span>
+</div>
+</div>
+<!-- Afrika -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-full bg-tertiary-container shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Afrika</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(2 Ülke)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 10%;"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold w-9 text-right">%10</span>
+</div>
+</div>
+<!-- Amerika -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-full bg-outline-variant shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Amerika</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(1 Ülke)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 5%;"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold w-9 text-right">%5</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Deep Dive Breakdown 2: Yolculuk Zaman Çizelgesi -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">calendar_month</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Yolculuk Zaman Çizelgesi</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+        7 Yıl
+      </span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<!-- İlk Seyahat Postcard Mini -->
+<div class="bg-surface-container-low rounded-lg p-space-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">İlk Seyahat</span>
+<span class="font-label-md text-label-md bg-surface-container-lowest px-1.5 py-0.5 rounded text-on-surface font-bold">2017</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-2xl">🇬🇷</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate leading-tight">Yunanistan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Atina &amp; Mikonos</span>
+</div>
+</div>
+<div class="mt-2 text-[10px] font-label-sm text-on-surface-variant flex items-center gap-1 opacity-70">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+          İlk damga basıldı
+        </div>
+</div>
+<!-- Son Eklenen Postcard Mini -->
+<div class="bg-surface-container-low rounded-lg p-space-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Son Eklenen</span>
+<span class="font-label-md text-label-md bg-surface-container-lowest px-1.5 py-0.5 rounded text-on-surface font-bold">2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-2xl">🇯🇵</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate leading-tight">Japonya</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tokyo &amp; Kyoto</span>
+</div>
+</div>
+<div class="mt-2 text-[10px] font-label-sm text-on-surface-variant flex items-center gap-1 opacity-70">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+          3 hafta önce
+        </div>
+</div>
+</div>
+</section>
+<!-- Gezgin Seviyesi İlerleme Hedefi (Milestone Progress Bar) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">military_tech</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Sonraki Rozet Hedefi</h3>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">
+        6 Ülke Kaldı
+      </span>
+</div>
+<!-- Next Level Card Info -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-bold shadow-sm">
+          5
+        </div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Seviye 5: Dünya Vatandaşı</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">Hedef: 30 Ülke Keşfi</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">80%</span>
+</div>
+<!-- Progress Indicator Bar -->
+<div class="space-y-1">
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-500" style="width: 80%;"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] font-label-sm text-on-surface-variant px-0.5">
+<span>Seviye 4 (20 Ülke)</span>
+<span class="font-bold text-on-surface">24 Ülke Tamamlandı</span>
+<span>Seviye 5 (30 Ülke)</span>
+</div>
+</div>
+</section>
+<!-- Photo Memory Moments Banner -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(90,70,50,0.06)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">photo_library</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Fotoğraf Anıları</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">142 Fotoğraf</span>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="relative rounded-lg overflow-hidden h-24 shadow-sm group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Santorini Greece whitewashed houses with blue dome churches overlooking Mediterranean sea under warm sunshine travel postcard photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmAFlh7gq_f5vSC1_ToewJm-PhYVKcT0E5iAx-3l9YILrqUgQ6j8qY3UMCKd_LaCscbf7zlBtG_9WUyGkiQT3bou8cdt77enF4GxR9fIRK-yrgprhpLs8JJwUvdKp5gv75YsCXsg5z-L0YMOoAnBHcfY_26hP2P93T8d41LRoTUyFiU3XqpWqcyU4xIQTCzjF0Ped2HHZvby0yBhnHmitn6LsGJrLoXP64eMS4rQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex items-end p-1.5">
+<span class="font-label-sm text-[10px] text-surface-container-lowest font-semibold truncate">Atina • '17</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-24 shadow-sm group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Streets of Barcelona with Gaudi architecture vibrant warm terracotta balconies and sunlit historic alley travel postcard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxWPr6SpGBF0fFyMcwpMRXoXvp9ByFuwfKm5rFGH-sDeeUjpPUIp0S1xQFtRiwEwfmloTVsVdts3ecqNgnkUunNBEJ-Qa4ckIKW486vNXEku7pNlEG2woOsPOYnl6VqDUJGAOPZ6oZsPzfT3G9OG_Nj5R8MPKtJg0e6qV56UE7YRskFexgdUz7jaIra4hXL7DC0LH5aIqZ7vrv3u-f4f7HwMfHwuRKQCzXcmZkWg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex items-end p-1.5">
+<span class="font-label-sm text-[10px] text-surface-container-lowest font-semibold truncate">Barselona • '21</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-24 shadow-sm group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Kyoto Japan traditional street with red paper lanterns and pagoda in evening twilight warm cinematic traveler photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-MZOguebf6-tyFKqgrjfq8yxhWoldSRkB_FxXBxnaBaoeRvJfcn_DwslDzMykq9ZgLrRkcyTLT1bavUNZQ93g4Y2KC5g_MlQdHheqLq4wK6-D-qk76v5-His909gfPjK0lLqWAUORxltMAEdX_Sl7apCfqSXCCH2UhqK5IwWkNGGUSLNGfsqYa_Hvz59vNW0VqY8Q4_PScgILevm2a5ft3yn_HxeMFJFZUTYeoA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex items-end p-1.5">
+<span class="font-label-sm text-[10px] text-surface-container-lowest font-semibold truncate">Kyoto • '24</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Local Storage Privacy & Offline Safe Notice -->
+<section class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">offline_pin</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Gizlilik ve Çevrimdışı Güvence</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug mt-0.5">
+        Tüm seyahat verileriniz cihazınızda çevrimdışı saklanmaktadır. Dilediğiniz an yedekleyin veya dışa aktarın.
+      </p>
+</div>
+</section>
+<!-- Micro Interaction Script for Tab Navigation & Active States -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Highlight current tab in the app shell bottom bar
+      const istatistikTab = document.querySelector('nav a[data-path="istatistik"]');
+      if (istatistikTab) {
+        istatistikTab.classList.remove('text-on-surface-variant');
+        istatistikTab.classList.add('text-primary', 'font-bold');
+        const icon = istatistikTab.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+      }
+    });
+  </script>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(90,70,50,0.06)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-space-xs max-w-md mx-auto"><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="harita" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">map</span><span class="font-label-sm text-label-sm leading-none">Harita</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="detay" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">explore</span><span class="font-label-sm text-label-sm leading-none">Detay</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="istatistik" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">leaderboard</span><span class="font-label-sm text-label-sm leading-none">İstatistik</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="pasaport" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">approval_delegation</span><span class="font-label-sm text-label-sm leading-none">Pasaport</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="paylas" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">share</span><span class="font-label-sm text-label-sm leading-none">Paylaş</span></a></div></nav></body></html>
