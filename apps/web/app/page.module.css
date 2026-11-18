@@ -1,0 +1,25 @@
+.main {
+  display: grid;
+  place-content: center;
+  gap: var(--space-sm);
+  min-height: 100dvh;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-xxl);
+  color: var(--color-accent);
+}
+
+.tagline {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+.note {
+  margin: 0;
+  color: var(--color-text-muted);
+}
