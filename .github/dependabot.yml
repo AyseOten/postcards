@@ -29,3 +29,13 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # Hold ESLint at 9.x: eslint-config-next depends on eslint-plugin-react, whose peer range
+      # stops at ESLint ^9.7, so ESLint 10 is not supported yet (see docs/decisions/0001).
+      # @eslint/js is versioned together with eslint.
+      # Remove this rule once eslint-config-next (and eslint-plugin-react) support ESLint 10,
+      # then update eslint and @eslint/js together and revisit ADR 0001.
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
