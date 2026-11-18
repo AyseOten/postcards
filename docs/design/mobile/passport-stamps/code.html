@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-fixed":"#2f1400","surface-container-lowest":"#ffffff","primary-fixed":"#ffdbd2","on-primary-fixed":"#3c0800","surface-bright":"#fbf9f6","outline-variant":"#dbc1ba","on-secondary-fixed":"#001e2c","surface":"#fbf9f6","tertiary-fixed-dim":"#ffb780","secondary-fixed-dim":"#8bcff6","surface-dim":"#dbdad7","inverse-primary":"#ffb4a1","outline":"#88726d","inverse-on-surface":"#f2f0ed","primary-container":"#e07a5f","surface-tint":"#9a442d","surface-variant":"#e4e2df","on-tertiary-container":"#4c2500","on-surface-variant":"#55423e","error-container":"#ffdad6","on-surface":"#1b1c1a","secondary":"#116588","secondary-container":"#94d7ff","tertiary-container":"#d18547","background":"#fbf9f6","on-secondary-fixed-variant":"#004c69","secondary-fixed":"#c4e7ff","on-tertiary":"#ffffff","primary":"#9a442d","on-primary":"#ffffff","primary-fixed-dim":"#ffb4a1","tertiary":"#8e4e14","error":"#ba1a1a","on-error-container":"#93000a","on-background":"#1b1c1a","tertiary-fixed":"#ffdcc4","surface-container-low":"#f5f3f0","on-secondary":"#ffffff","on-primary-container":"#5b1604","on-secondary-container":"#005f81","surface-container":"#efeeeb","surface-container-highest":"#e4e2df","on-error":"#ffffff","inverse-surface":"#30312f","on-tertiary-fixed-variant":"#6f3800","surface-container-high":"#eae8e5","on-primary-fixed-variant":"#7c2e19"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","gutter-mobile":"0.75rem","margin-mobile":"1rem","gutter":"1.25rem","space-sm":"0.5rem","margin":"2rem","space-lg":"1.5rem","space-xl":"2.25rem","space-xs":"0.25rem"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"700"}],"title-md":["17px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(90,70,50,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Postcards Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcPc5SGZ_idSRk6ZGJcVZ47imqT4xOrOpXNmkNpyFkeIA12wKZaJDg2iIUDJQqYd_5Vz8Qv5Gvpf4afSj_PiC5-F67QFCVkXp_VokHpQByV9BHbLrUT18NwD_ISpzuAHOOAAbTX0Nd5Yqvm5GoKK7fvrlnCcUHGQNA2ji9CqeaEpyiFZDvP2p9s8W1-FyhAl595by4SFlm5K9_g0CAurW9yOcTmLYuBEliKpnypw"/><div class="flex flex-col truncate"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface tracking-tight leading-none">Postcards</span><span class="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[9px] uppercase tracking-wider leading-none">TR</span></div><span class="font-label-sm text-[10px] text-on-surface-variant truncate">@postcards.fromworld</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Tema Değiştir" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low" type="button"><span class="material-symbols-outlined text-[22px]">light_mode</span></button><button aria-label="Profil Menüsü" class="w-11 h-11 flex items-center justify-center rounded-full transition-transform active:scale-95" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(90,70,50,0.12)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4sDdoBbsEsRix4l-Add8PzIxCmcWJLAyMaUsQ7pRWNMbwMlK-8rLgNXZUJlX0yRCNgiduH4nGt9yvbzZs15TF2jZlhje66B_RrWS3wYpbfO5Cx1tRNnT0HMlqvYKAFJK-Ih913G68PwXfPoUdkLlLhPeNBGyGeI1Uvj2ZMofIaAHMuz8aE1_LeonqIjQ2CUL8LppNYi5_ke6nxpzozAeW0lDcgCkkT304naAHsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full pb-10">
+<!-- Top Passport Cover Banner -->
+<div class="px-margin-mobile pt-space-md pb-space-xs">
+<div class="relative overflow-hidden rounded-xl bg-on-secondary-fixed text-surface-container-lowest p-space-md shadow-md">
+<!-- Vintage textured grain & faint gold emblem accent -->
+<div class="absolute -right-6 -bottom-6 w-36 h-36 rounded-full bg-tertiary-fixed/10 pointer-events-none blur-xl"></div>
+<div class="absolute top-2 right-3 opacity-20 pointer-events-none">
+<svg class="fill-none stroke-current" height="84" stroke-width="1.5" viewbox="0 0 100 100" width="84">
+<circle cx="50" cy="50" r="46" stroke-dasharray="3 3"></circle>
+<circle cx="50" cy="50" r="38"></circle>
+<circle cx="50" cy="50" r="26"></circle>
+<path d="M50 14 L50 86 M14 50 L86 50 M24 24 L76 76 M24 76 L76 24" stroke-opacity="0.4"></path>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed tracking-widest uppercase">Resmi Gezgin Kaydı</span>
+</div>
+<span class="bg-tertiary-fixed/20 text-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full backdrop-blur-sm">No. TR-2024-88</span>
+</div>
+<div class="pt-space-xs">
+<h1 class="font-headline-sm text-headline-sm text-surface-container-lowest tracking-tight">T.C. Gezgin Pasaportu</h1>
+<p class="font-body-md text-body-md text-surface-dim flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-primary-fixed text-[16px]">approval_delegation</span>
+<span>24 Onaylı Damga • 4 Kıta Keşfi</span>
+</p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-lowest/10 rounded-lg px-space-sm py-2 backdrop-blur-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-surface-container-lowest font-medium">Son Damga: Oslo Fiyordu</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">14 Mayıs 2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Filter Tabs -->
+<div class="px-margin-mobile pt-space-md">
+<div class="flex p-1 bg-surface-container-high rounded-full">
+<button class="flex-1 py-1.5 px-3 rounded-full bg-surface-container-lowest shadow-sm text-primary font-label-md text-label-md transition-all text-center" id="tab-stamps" type="button">
+        Damgalar &amp; Pullar (24)
+      </button>
+<button class="flex-1 py-1.5 px-3 rounded-full text-on-surface-variant font-label-md text-label-md transition-all text-center" id="tab-badges" type="button">
+        Koleksiyon Rozetleri (6)
+      </button>
+</div>
+</div>
+<!-- Section 1: Stamp Grid (Kazanılan Pullar) -->
+<section class="flex flex-col px-margin-mobile pt-space-lg" id="stamps-section">
+<div class="flex items-end justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Filateli Defteri</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Kazanılan Pullar</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded-full">6/24 Görüntüleniyor</span>
+</div>
+<!-- Stamps Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Stamp 1: İtalya (Colosseum) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<!-- Postmark ink cancel glyph -->
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-80 rotate-12">
+<svg class="text-primary stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="24" stroke-dasharray="4 2" stroke-width="1.2"></circle>
+<circle cx="30" cy="30" r="18" stroke-width="0.8"></circle>
+<path d="M 8 30 Q 20 24 32 30 T 54 30" stroke-width="1"></path>
+<path d="M 8 34 Q 20 28 32 34 T 54 34" stroke-width="1"></path>
+<text fill="currentColor" font-size="6" font-weight="bold" text-anchor="middle" x="30" y="22">ROMA - 2023</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Nostalgic vintage postal stamp art of the Roman Colosseum in Rome Italy, warm terracotta and blush hues, retro textured travel illustration, sunbeams, soft grain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbnNDcyaJLFC2Y_Zdwb5buFVH1-7uNRZA7Mg_vPA8vDFr_PXzFM5mSJ6r3wELHsvnJ8bgKtnxoEzPUOJ-A55I9BqVj0f1l6Yful77UcrHuS5DWLuT_SJe0IztqwR8Sz8V4gF4XpvqwudsljMA__t3kq9SML8yz-ieeR1FNkYRsujqfgk6M-aCxKgy1doQa0g4uduE5e2AgK1y3omdqBk2nCBNue3pbsBch2_bI1g"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            € 1.50
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">İtalya</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Kolezyum Damgası</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+<!-- Stamp 2: Japonya (Torii & Sakura) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<!-- Postmark ink cancel glyph -->
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-80 -rotate-6">
+<svg class="text-secondary stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="24" stroke-dasharray="3 3" stroke-width="1.2"></circle>
+<circle cx="30" cy="30" r="18" stroke-width="0.8"></circle>
+<text fill="currentColor" font-size="6" font-weight="bold" text-anchor="middle" x="30" y="24">KYOTO - JP</text>
+<text fill="currentColor" font-size="5" text-anchor="middle" x="30" y="38">APR 2024</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-secondary-fixed">
+<img class="w-full h-full object-cover" data-alt="Vintage postage stamp illustration of Japanese red Torii Gate framed by gentle pink cherry blossoms and Mount Fuji in soft pastel rose tones, tactile paper grain texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCznpeL3Yt1bUkSqQDEbF7P9TJL67PZTrzlkIoH0Zo_EQw73ih_O2VFswVb37F-Zy256pODJnwxzoXiV2oZGz21Pf5ReWbSc3ms8JMheHaDTw46GT2GhW3vC_YGgMw2T0tmvfLZFzxXncZBWzmCA0_WAQhwTUnTmysRUHECaIWYlwK29dUalN3iyTiElvgV0Ij8cIkzbOCB2mvXhkJFcKrMWVuNswifUyz_-gHygQ"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            ¥ 120
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">Japonya</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Sakura &amp; Torii</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+<!-- Stamp 3: Fransa (Eiffel Tower) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-75 rotate-45">
+<svg class="text-tertiary stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="22" stroke-width="1"></circle>
+<path d="M 12 25 L 48 25 M 12 35 L 48 35" stroke-width="0.8"></path>
+<text fill="currentColor" font-size="5.5" font-weight="bold" text-anchor="middle" x="30" y="31">PARIS R.P.</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="Classic French commemorative postage stamp of Eiffel Tower towering amidst romantic twilight sky with soft lavender and indigo hues, vintage hand-drawn styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9Q4G8bjX7AQ1KtQqu-qkRxxes8zyYtAlS0c-ybwRxbAHeaeL94z_SDQxI-WY-H6Qeh8QvlbzmvVSsXVIXlJZ9uaqfKFw2IC9Ju9a9yjfaGcAuLCWIaJ2wYdLcbNJf3WIS8kFVnE562DRLo2oGCVEkTksOC5ZQzyp4MX8vDB2zV2WZY1LZlsIE1n9s9T1rzyjbq3T_T5kBoq9roPilRxjtiT5mWmPOKmxGMPY5A"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            € 1.80
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">Fransa</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Eyfel Kulesi</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+<!-- Stamp 4: İspanya (Sagrada Familia) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-80 -rotate-12">
+<svg class="text-primary-container stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="23" stroke-dasharray="2 3" stroke-width="1.2"></circle>
+<text fill="currentColor" font-size="5" font-weight="bold" text-anchor="middle" x="30" y="26">BARCELONA</text>
+<text fill="currentColor" font-size="5" text-anchor="middle" x="30" y="36">CORREOS</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Postage stamp of Barcelona Sagrada Familia spires glowing under golden Mediterranean sunset, detailed architectural linework, warm terracotta and sienna tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtEN6c868lBp6J5DYkZxx73Baxa1bFxJWBMQIZ7YKOD5L6ZW2Wo-n-USswjC5ePBmBCe5ElCEQOnZ3FA4qMV3UmxCqpeOyyFfkvhPqOxAUCDfpYwbDdI2v2j4dyp4NrasKBsk9j-UWwClyixQ8yFwikGjwE69rPir9lJKzjPhsOrss50eUlQA1X_7aXk3wOf5US43yExh2G402LfXQSlqchQh-aLRlg0THpdSz0A"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            € 2.10
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">İspanya</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Sagrada Familia</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+<!-- Stamp 5: Norveç (Fjord & Aurora) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-80 rotate-18">
+<svg class="text-secondary stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="22" stroke-width="1"></circle>
+<circle cx="30" cy="30" r="16" stroke-dasharray="1 2" stroke-width="0.8"></circle>
+<text fill="currentColor" font-size="5" font-weight="bold" text-anchor="middle" x="30" y="31">TROMSØ POST</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-secondary-fixed">
+<img class="w-full h-full object-cover" data-alt="Vintage postage stamp illustration of Norwegian deep blue fjords under vibrant dancing northern lights aurora borealis, teal and emerald pastel colors on aged paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdfTfG0LHnhXMXt-XAehgtS6ILarjl8NLB4tMohamK5iuxkTztHUoRZ25A16l_-ip1_QOXarOJeWT-jMd8mwn5rZgnaEPfbMF9T8FPQpLEP5-oj8RLNxlxDLwH75KDnqcvylk21sdlLrxDz_O6hYV8j6hANWLc6ZgVM9kavAvpjnRDvmFAS3GRccDUnldcp0tNAJSJbkVYuvyqoYoS4pB2G-Dud17sAfWONexECw"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            kr 28
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">Norveç</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fiyort &amp; Aurora</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+<!-- Stamp 6: Türkiye (Galata & Balon) -->
+<div class="relative bg-surface-container-lowest p-2 rounded-xl shadow-sm flex flex-col group transition-transform active:scale-98">
+<div class="absolute -top-1 -right-1 z-20 pointer-events-none opacity-80 -rotate-8">
+<svg class="text-tertiary stroke-current fill-none" height="48" viewbox="0 0 60 60" width="48">
+<circle cx="30" cy="30" r="23" stroke-width="1.2"></circle>
+<text fill="currentColor" font-size="5.5" font-weight="bold" text-anchor="middle" x="30" y="24">İSTANBUL PTT</text>
+<text fill="currentColor" font-size="4.5" text-anchor="middle" x="30" y="37">GELİŞ DAMGASI</text>
+</svg>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-tertiary-fixed">
+<img class="w-full h-full object-cover" data-alt="Commemorative vintage postage stamp of Istanbul Galata Tower with Cappadocia hot air balloons floating across golden amber sky, nostalgic warm aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHYMrr8xXVPI7PsPKomQfuPJ8KocMz7rrv4eocMmgNhkSLDK2LcSXvdsPwIrSaldI3X4ZVyCJRRoCxwdLYkXVQWMJXFbTyWlgsrUdYr-Q6sb2FH8TJWdf8ymDsnARmEm4ohS3TNoY6yILjSdrka0ArjEOmkxYyqkJM_Qp8MQa6zaE8wawsZHv135MSVRyKyogwJZ1ppw9VgQ6QWge3QSrt90DqWmoIAA05Qe7yPg"/>
+<div class="absolute bottom-1 left-1.5 bg-on-surface/75 backdrop-blur-xs text-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider">
+            ₺ 15.00
+          </div>
+</div>
+<div class="pt-2 pb-1 px-1 flex items-center justify-between">
+<div>
+<div class="font-title-md text-title-md text-on-surface leading-tight">Türkiye</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Galata &amp; Kapadokya</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">done</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Locked Stamps Teaser Card -->
+<div class="mt-space-md bg-surface-container-low rounded-xl p-space-md flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">+18 Pul Keşfedilmeyi Bekliyor</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Yeni bir ülkeye seyahat edip damgalayın</div>
+</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Collection Progress & Badges (Rozetler ve Hedefler) -->
+<section class="flex flex-col px-margin-mobile pt-space-xl" id="badges-section">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Bölgesel &amp; Özel Hedefler</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Koleksiyon Başarımları</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary-fixed/40 px-2 py-0.5 rounded-full">2 Tamamlandı</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Completed 1: İlk 10 Ülke -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2 relative overflow-hidden">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary-fixed/20 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">celebration</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span>İlk 10 Ülke</span>
+<span class="text-[14px]">🎉</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Dünya Gezgini Başlangıç Rozeti</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-primary/10 text-primary px-2.5 py-1 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Tamamlandı! (10/10)</span>
+</div>
+</div>
+</div>
+<!-- In Progress 1: 25 Ülke Kulübü (Celebratory Urgency!) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">25 Ülke Kulübü</div>
+<div class="font-label-sm text-label-sm text-tertiary font-bold">Hedefe sadece 1 ülke kaldı! ✈️</div>
+</div>
+</div>
+<div class="font-title-md text-title-md text-tertiary font-bold">
+            24<span class="text-on-surface-variant text-label-sm font-normal">/25</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden mt-1">
+<div class="bg-tertiary-container h-full rounded-full transition-all duration-500" style="width: 96%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span>Altın Gezgin Nişanı</span>
+<span class="font-bold text-tertiary">%96 Tamamlandı</span>
+</div>
+</div>
+<!-- Completed 2: Akdeniz Rüyası -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2 relative overflow-hidden">
+<div class="absolute right-0 top-0 w-24 h-24 bg-secondary-fixed/30 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[22px]">beach_access</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span>Akdeniz Rüyası</span>
+<span class="text-[14px]">🏖️</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">İtalya, İspanya, Yunanistan, Hırvatistan, Fransa</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary/10 text-secondary px-2.5 py-1 rounded-full font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>5/5 Pul</span>
+</div>
+</div>
+</div>
+<!-- In Progress 2: Bütün Kıtalar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">public</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Bütün Kıtalar</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Avrupa, Asya, Afrika, K. Amerika</div>
+</div>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-bold">
+            4<span class="text-on-surface-variant text-label-sm font-normal">/7 Kıta</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 57%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span>Kalan: G. Amerika, Okyanusya, Antarktika</span>
+<span class="font-bold text-primary">%57</span>
+</div>
+</div>
+<!-- In Progress 3: Balkan Turu -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">alt_route</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Balkan Turu</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Bosna, Sırbistan, Karadağ tamamlandı</div>
+</div>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-bold">
+            3<span class="text-on-surface-variant text-label-sm font-normal">/6 Ülke</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 50%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span>Makedonya, Arnavutluk, Kosova bekleniyor</span>
+<span class="font-bold text-secondary">%50</span>
+</div>
+</div>
+<!-- In Progress 4: İskandinav Kaşifi -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">nordic_walking</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">İskandinav Kaşifi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Norveç tamamlandı</div>
+</div>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-bold">
+            1<span class="text-on-surface-variant text-label-sm font-normal">/3 Ülke</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden mt-1">
+<div class="bg-tertiary h-full rounded-full transition-all duration-500" style="width: 33%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span>İsveç &amp; Danimarka seyahati planlayın</span>
+<span class="font-bold text-tertiary">%33</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Stamp Detail Modal (Hidden by default, triggered on click) -->
+<div class="fixed inset-0 z-50 flex items-end justify-center bg-on-surface/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="stamp-modal">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-t-3xl p-space-lg flex flex-col gap-space-md transform translate-y-full transition-transform duration-300" id="modal-card">
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[28px]">approval_delegation</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="modal-title">Resmi Pasaport Damgası</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant" id="modal-subtitle">Giriş: Fiumicino Havalimanı (FCO)</p>
+</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-xl flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[36px]">travel_explore</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Hatıra Kartı</span>
+<span class="font-title-md text-title-md text-on-surface">Kolezyum Gezisi • 2023</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-0.5">3 Fotoğraf, 1 Posta Kartı Gönderildi</span>
+</div>
+</div>
+<div class="flex gap-space-sm">
+<button class="flex-1 py-3 px-space-md bg-primary text-on-primary rounded-full font-label-md text-label-md shadow-sm text-center" type="button">
+          Kartpostal Anılarına Git
+        </button>
+<button class="py-3 px-space-md bg-surface-container text-on-surface rounded-full font-label-md text-label-md text-center" id="close-modal-btn" type="button">
+          Kapat
+        </button>
+</div>
+</div>
+</div>
+<!-- Local Interactivity Script -->
+<script>
+    (function() {
+      const tabStamps = document.getElementById('tab-stamps');
+      const tabBadges = document.getElementById('tab-badges');
+      const sectionStamps = document.getElementById('stamps-section');
+      const sectionBadges = document.getElementById('badges-section');
+      const modal = document.getElementById('stamp-modal');
+      const modalCard = document.getElementById('modal-card');
+      const closeModal = document.getElementById('close-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+
+      // Simple tab toggle with smooth scroll
+      if (tabStamps && tabBadges) {
+        tabStamps.addEventListener('click', () => {
+          tabStamps.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+          tabStamps.classList.remove('text-on-surface-variant');
+          tabBadges.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+          tabBadges.classList.add('text-on-surface-variant');
+          sectionStamps.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        tabBadges.addEventListener('click', () => {
+          tabBadges.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+          tabBadges.classList.remove('text-on-surface-variant');
+          tabStamps.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+          tabStamps.classList.add('text-on-surface-variant');
+          sectionBadges.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
+      // Stamp Card inspection trigger
+      const stampCards = document.querySelectorAll('#stamps-section .group');
+      stampCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const title = card.querySelector('.font-title-md')?.innerText || 'Damga Detayı';
+          const subtitle = card.querySelector('.font-label-sm')?.innerText || '';
+          document.getElementById('modal-title').innerText = title + ' Damgası';
+          document.getElementById('modal-subtitle').innerText = 'Pasaport Sayfası • ' + subtitle;
+          
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+          modalCard.classList.remove('translate-y-full');
+        });
+      });
+
+      const hideModal = () => {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalCard.classList.add('translate-y-full');
+      };
+
+      if (closeModal) closeModal.addEventListener('click', hideModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) hideModal();
+        });
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(90,70,50,0.06)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-space-xs max-w-md mx-auto"><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="harita" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">map</span><span class="font-label-sm text-label-sm leading-none">Harita</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="detay" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">explore</span><span class="font-label-sm text-label-sm leading-none">Detay</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="istatistik" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">leaderboard</span><span class="font-label-sm text-label-sm leading-none">İstatistik</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-12 transition-colors group text-primary font-bold" data-path="pasaport" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">approval_delegation</span><span class="font-label-sm text-label-sm leading-none">Pasaport</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors group" data-path="paylas" href="#"><span class="material-symbols-outlined text-[22px] mb-0.5 group-hover:scale-105 transition-transform">share</span><span class="font-label-sm text-label-sm leading-none">Paylaş</span></a></div></nav></body></html>
