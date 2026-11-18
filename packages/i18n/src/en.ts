@@ -8,4 +8,11 @@ export const en: Messages = {
   home: {
     comingSoon: 'Your map is coming soon.',
   },
+  regions: {
+    mediterranean: 'Mediterranean',
+    balkans: 'Balkans',
+    nordic: 'Scandinavia & Nordics',
+    'southeast-asia': 'Southeast Asia',
+    'south-america': 'South America',
+  },
 };
