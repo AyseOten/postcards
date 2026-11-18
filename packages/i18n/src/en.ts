@@ -8,6 +8,12 @@ export const en: Messages = {
   home: {
     comingSoon: 'Your map is coming soon.',
   },
+  theme: {
+    label: 'Theme',
+    system: 'System',
+    light: 'Light',
+    dark: 'Dark',
+  },
   regions: {
     mediterranean: 'Mediterranean',
     balkans: 'Balkans',

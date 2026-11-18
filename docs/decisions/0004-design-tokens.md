@@ -28,7 +28,11 @@
    - `docs/design/tokens-contrast.md` is generated from the same list, and the `test` script fails if it is out of date.
    - A component that needs a new combination adds the pair first.
 6. **Font.** Plus Jakarta Sans is loaded with `next/font/google`. It is downloaded at build time and served by the app, so there is no runtime request to Google. It includes the `latin-ext` subset for Turkish letters. The CSS variable name and weights live in `@postcards/tokens`; a web test checks that `app/fonts.ts` matches them.
-7. **Theme switching** follows `prefers-color-scheme` for now. The manual light/dark/system switch, with the choice remembered, is the next PR (via `packages/data`).
+7. **Theme switching.**
+   - The default follows `prefers-color-scheme`. The user can force light or dark, and the choice is remembered.
+   - `data-theme` on `<html>` forces a theme (`THEME_ATTRIBUTE` in tokens).
+   - The choice is stored through `PreferencesRepository` (`postcards.preferences.v1`, falling back to the session if storage is blocked).
+   - A small inline script from `@postcards/data` applies a stored choice before first paint, so the page never flashes in the wrong theme.
 
 ## Consequences
 
