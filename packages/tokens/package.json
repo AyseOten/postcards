@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/contrast-report.mjs --check",
+    "contrast:report": "node --no-warnings --import ./scripts/ts-resolve.mjs scripts/contrast-report.mjs"
   }
 }

@@ -34,7 +34,7 @@ The differences between the designs and the spec were resolved on 2026-11-18; se
 
 | Topic | In the designs | Decision |
 | --- | --- | --- |
-| Colors | `DESIGN.md` front matter (`#9a442d`, `#116588`, `#8e4e14`) and prose (`#E07A5F`, `#3D84A8`, `#F4A261`) disagree | **Both:** dark tones for buttons, text and accents; pastel tones for map status colors and background surfaces. The token proposal shows WCAG AA contrast for every text/background pair. |
+| Colors | `DESIGN.md` front matter (`#9a442d`, `#116588`, `#8e4e14`) and prose (`#E07A5F`, `#3D84A8`, `#F4A261`) disagree | **Both:** dark tones for buttons, text and accents; pastel tones for map status colors and background surfaces. Contrast for every pair: [`tokens-contrast.md`](tokens-contrast.md) (ADR 0004). |
 | Wishlist label | "İstiyorum" in most screens | **"Gitmek istiyorum"** is the main label; **"İstiyorum"** is the short form for chips and the legend. Both come from `packages/i18n`. |
 | Traveler titles | "Tutkulu Kaşif", "Altın Kaşif", levels | **v0.1 uses the six titles in SPEC.md §5.4.** Levels and badge titles move to v0.3 (ARCHITECTURE.md §11). |
 | Continents | "Amerika" as one continent | **Seven continents** (North and South America separate, Antarctica included). |

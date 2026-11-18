@@ -1,7 +1,4 @@
 /* All values come from @postcards/tokens as CSS custom properties (see app/layout.tsx). */
-:root {
-  color-scheme: light dark;
-}
 
 *,
 *::before,
@@ -15,5 +12,12 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: var(--font-size-md);
+  font-size: var(--text-body-lg-font-size);
+  line-height: var(--text-body-lg-line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
 }

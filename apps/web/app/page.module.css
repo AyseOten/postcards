@@ -9,17 +9,28 @@
 
 .title {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--font-size-xxl);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
+  font-size: var(--text-display-lg-mobile-font-size);
+  line-height: var(--text-display-lg-mobile-line-height);
+  font-weight: var(--text-display-lg-mobile-font-weight);
+  letter-spacing: var(--text-display-lg-mobile-letter-spacing);
 }
 
 .tagline {
   margin: 0;
-  font-size: var(--font-size-lg);
+  font-size: var(--text-headline-sm-font-size);
+  line-height: var(--text-headline-sm-line-height);
+  font-weight: var(--text-headline-sm-font-weight);
 }
 
 .note {
   margin: 0;
   color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-display-lg-font-size);
+    line-height: var(--text-display-lg-line-height);
+  }
 }
