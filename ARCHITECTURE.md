@@ -31,7 +31,7 @@ What only Postcards has:
 | --- | --- | --- |
 | **v0.1 Map & Passport** | Map with visited / lived / want to go; country detail (year, note); fun stats; passport stamps and collections; share card. No sign-up; data stays in the browser. | Completing collections, planning the wishlist, sharing |
 | **v0.2 Account, Trips & Postcards** | Google/Apple sign-in and sync; trips (past and upcoming, with countries and cities); postcards (photo + note + date); public profile link. | Every trip creates new content |
-| **v0.3 Planning & Retention** | Day plans and places to visit for upcoming trips; "on this day" memories; yearly recap; curated country pages. | Reasons to open the app between trips |
+| **v0.3 Planning & Retention** | Day plans and places to visit for upcoming trips; "on this day" memories; yearly recap; curated country pages; traveler levels and badge titles. | Reasons to open the app between trips |
 | **v0.4 Mobile** | iOS/Android app, same account and data, push notifications. | Reminders and memories on the phone |
 | **v0.5 Community** | Follow travelers, feed of public postcards and routes, discover destinations. | Social |
 
@@ -330,6 +330,7 @@ Row Level Security: users read and write only their own rows; public profiles, p
 2. "On this day" reminders (email first).
 3. Curated country pages.
 4. Yearly recap.
+5. Gamification: traveler levels and badge titles (e.g. "Seviye 4: Kıtalararası Gezgin", "Tutkulu Kaşif") on top of the six v0.1 titles; computed from marks and trips like stamps (see `docs/decisions/0003-design-scope-v0.1.md`).
 
 ### Phase 4 – v0.4 Mobile
 1. `apps/mobile` with Expo, reusing the shared packages.
