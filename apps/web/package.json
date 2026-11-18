@@ -1,0 +1,30 @@
+{
+  "name": "@postcards/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@postcards/core": "workspace:*",
+    "@postcards/data": "workspace:*",
+    "@postcards/i18n": "workspace:*",
+    "@postcards/tokens": "workspace:*",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.10.0",
+    "@testing-library/react": "16.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint-config-next": "16.4.6",
+    "jest-environment-jsdom": "30.5.2"
+  }
+}

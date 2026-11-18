@@ -59,7 +59,31 @@ Next.js · TypeScript · pnpm + Turborepo · d3-geo · Jest · GitHub Actions ·
 
 ## Run locally
 
+Requires Node.js 24 or newer (see `.nvmrc`) and pnpm 12 (`npm install -g pnpm@12`, or `corepack enable` where corepack is available).
+
 ```bash
 pnpm install
-pnpm dev
+pnpm dev     # web app on http://localhost:3000
+pnpm lint    # ESLint + TypeScript in every package
+pnpm test    # Jest in every package
+pnpm build   # production build
 ```
+
+## Deploy
+
+The web app is deployed on [Vercel](https://vercel.com) from this repository.
+
+1. On vercel.com: **Add New… → Project**, import the GitHub repository.
+2. **Root Directory:** `apps/web` (keep "Include files outside the root directory" enabled; the app uses the shared packages).
+3. **Framework Preset:** Next.js (detected).
+4. **Install** and **Build** commands come from [`apps/web/vercel.json`](apps/web/vercel.json); leave the overrides in the dashboard off:
+   - Install: `pnpm install --frozen-lockfile` (pnpm version from `packageManager` in the root `package.json`)
+   - Build: `cd ../.. && pnpm turbo run build --filter=@postcards/web`
+5. **Node.js version:** 24.x or newer (Project Settings → Build and Deployment).
+6. No environment variables are needed yet. From v0.2 the Supabase keys are added here, never committed.
+
+Every push to `main` deploys to production; every pull request gets a preview URL.
+
+## License
+
+Copyright © 2026 Ayşe Öten. All rights reserved.
