@@ -1,4 +1,10 @@
-import { isCountryCodeFormat, isMarkStatus, MARK_STATUSES } from './types';
+import {
+  isCountryCodeFormat,
+  isMarkStatus,
+  isThemePreference,
+  MARK_STATUSES,
+  THEME_PREFERENCES,
+} from './types';
 
 describe('isMarkStatus', () => {
   it.each(MARK_STATUSES)('accepts %s', (status) => {
@@ -17,5 +23,15 @@ describe('isCountryCodeFormat', () => {
 
   it.each(['tr', 'TUR', 'T', '', 'T1', null, 792])('rejects %p', (value) => {
     expect(isCountryCodeFormat(value)).toBe(false);
+  });
+});
+
+describe('isThemePreference', () => {
+  it.each(THEME_PREFERENCES)('accepts %s', (value) => {
+    expect(isThemePreference(value)).toBe(true);
+  });
+
+  it.each(['auto', 'Dark', '', null, 1])('rejects %p', (value) => {
+    expect(isThemePreference(value)).toBe(false);
   });
 });

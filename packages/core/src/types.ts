@@ -22,3 +22,12 @@ export function isMarkStatus(value: unknown): value is MarkStatus {
 export function isCountryCodeFormat(value: unknown): value is CountryCode {
   return typeof value === 'string' && /^[A-Z]{2}$/.test(value);
 }
+
+/** The user's color theme choice. "system" follows the OS setting (prefers-color-scheme). */
+export const THEME_PREFERENCES = ['system', 'light', 'dark'] as const;
+
+export type ThemePreference = (typeof THEME_PREFERENCES)[number];
+
+export function isThemePreference(value: unknown): value is ThemePreference {
+  return typeof value === 'string' && (THEME_PREFERENCES as readonly string[]).includes(value);
+}

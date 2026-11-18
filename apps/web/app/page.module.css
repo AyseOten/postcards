@@ -7,6 +7,12 @@
   text-align: center;
 }
 
+.toolbar {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+}
+
 .title {
   margin: 0;
   color: var(--color-accent-text);

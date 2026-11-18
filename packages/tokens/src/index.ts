@@ -11,7 +11,7 @@ export {
   type ContrastResult,
   type PairKind,
 } from './contrast';
-export { toCssVariables } from './css';
+export { THEME_ATTRIBUTE, toCssVariables } from './css';
 export { palette } from './palette';
 export { renderContrastReport } from './report';
 export {

@@ -1,0 +1,54 @@
+/* Segmented pill control (DESIGN.md "Segmented Tabs"). All values from @postcards/tokens. */
+.toggle {
+  display: inline-flex;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+}
+
+.legend {
+  /* Visually hidden, still announced by screen readers. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--min-tap-size);
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: var(--text-label-md-font-size);
+  line-height: var(--text-label-md-line-height);
+  font-weight: var(--text-label-md-font-weight);
+  letter-spacing: var(--text-label-md-letter-spacing);
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.option:has(.input:checked) {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.option:has(.input:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

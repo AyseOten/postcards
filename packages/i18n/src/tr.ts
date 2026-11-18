@@ -7,6 +7,12 @@ export const tr = {
   home: {
     comingSoon: 'Haritan çok yakında burada.',
   },
+  theme: {
+    label: 'Tema',
+    system: 'Sistem',
+    light: 'Açık',
+    dark: 'Koyu',
+  },
   /** Passport collection regions; keys are the region ids in @postcards/core. */
   regions: {
     mediterranean: 'Akdeniz',

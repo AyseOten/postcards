@@ -24,6 +24,7 @@ Postcards is a personal travel world: visited countries, a wishlist and travel m
 - `packages/core` must not import React, Next.js, browser or Node APIs. It has to run on web, mobile and server.
 - The UI never accesses storage or Supabase directly; it goes through repositories in `packages/data`.
 - Country identity is always the ISO 3166-1 alpha-2 code. Never match countries by name.
+- The UI uses only `getMarkable` / `listMarkable` (and `getMarkableByContinent`) for markable places, never `getCountry` directly; country-only functions leave out Antarctica (ADR 0005). Enforced by `eslint.ui-rules.mjs`.
 - Colors, spacing and fonts come from `packages/tokens`; no hard-coded values in components.
 - All user-facing text comes from `packages/i18n` (Turkish default, English second).
 - Every Supabase table has Row Level Security policies. Secrets only in environment variables.
