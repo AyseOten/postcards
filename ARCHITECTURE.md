@@ -30,7 +30,7 @@ What only Postcards has:
 | Phase | Users get | Why they come back |
 | --- | --- | --- |
 | **v0.1 Map & Passport** | Map with visited / lived / want to go; country detail (year, note); fun stats; passport stamps and collections; share card. No sign-up; data stays in the browser. | Completing collections, planning the wishlist, sharing |
-| **v0.2 Account, Trips & Postcards** | Google/Apple sign-in and sync; trips (past and upcoming, with countries and cities); postcards (photo + note + date); public profile link. | Every trip creates new content |
+| **v0.2 Account, Trips & Postcards** | Google/Apple sign-in and sync; trips (past and upcoming, with countries and cities); postcards (photo + note + date); public profile link; markable territories. | Every trip creates new content |
 | **v0.3 Planning & Retention** | Day plans and places to visit for upcoming trips; "on this day" memories; yearly recap; curated country pages; traveler levels and badge titles. | Reasons to open the app between trips |
 | **v0.4 Mobile** | iOS/Android app, same account and data, push notifications. | Reminders and memories on the phone |
 | **v0.5 Community** | Follow travelers, feed of public postcards and routes, discover destinations. | Social |
@@ -324,6 +324,7 @@ Row Level Security: users read and write only their own rows; public profiles, p
 4. Trips (past and upcoming) with stops.
 5. Postcards with photo upload; trip album.
 6. Public profile page with link preview.
+7. Territories (Greenland, Puerto Rico, New Caledonia, …) as markable places that do not count as countries; grey and not markable in v0.1 (ADR 0005).
 
 ### Phase 3 – v0.3 Planning & Retention
 1. Day plans and places to visit.

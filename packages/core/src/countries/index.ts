@@ -2,39 +2,46 @@ import type { CountryCode } from '../types';
 import { CONTINENT_DECISIONS } from './continent-overrides';
 import type { Continent } from './continents';
 import { RAW_COUNTRIES } from './data.generated';
+import { EXTRA_COUNTRIES } from './extra-countries';
 import { DISPLAY_NAME_OVERRIDES, type NameLocale } from './names';
 import type { RawCountry } from './raw';
-import { countsTowardWorldTotal, isMarkableCountry } from './world';
+import { countsTowardWorldTotal, isCountry, isMarkable } from './world';
 
 export { CONTINENTS, isContinent, type Continent } from './continents';
 export { CONTINENT_DECISIONS } from './continent-overrides';
 export { DISPLAY_NAME_OVERRIDES, type NameLocale } from './names';
 export { REGION_IDS, REGIONS, type Region, type RegionId } from './regions';
 export {
+  COUNTRY_CODES,
   countsTowardWorldTotal,
   getWorldPercent,
-  isMarkableCountry,
-  MARKABLE_COUNTRY_CODES,
+  isCountry,
+  isMarkable,
+  isSpecialRegion,
+  MARKABLE_CODES,
   OTHER_COUNTRY_CODES,
+  SPECIAL_REGION_CODES,
   UN_MEMBER_CODES,
   UN_OBSERVER_CODES,
   WORLD_COUNTRY_TOTAL,
 } from './world';
 
+/** Something that can be marked: a country, or a special region (Antarctica). */
 export interface Country {
-  /** ISO 3166-1 alpha-2 (XK for Kosovo). */
+  /** ISO 3166-1 alpha-2, or a user-assigned X code (XK Kosovo, XN Northern Cyprus). */
   code: CountryCode;
-  /** ISO 3166-1 numeric, used to match map shapes. XK uses the user-assigned "983". */
+  kind: 'country' | 'special-region';
+  /** ISO 3166-1 numeric, used to match map shapes. XK uses the user-assigned "983"; XN has none. */
   numericCode?: string;
   name: Readonly<Record<NameLocale, string>>;
   /** Other known names in Turkish and English (official forms, abbreviations), for search. */
   aliases: readonly string[];
   continent: Continent;
-  /** Whether the country is one of the 195 in the world-percentage denominator. */
+  /** True for the 198 countries; false for special regions. */
   countsTowardWorldTotal: boolean;
 }
 
-function toCountry(raw: RawCountry): Country {
+function toMarkable(raw: RawCountry): Country {
   const override = DISPLAY_NAME_OVERRIDES[raw.code];
   const name = {
     tr: override?.tr ?? raw.tr[0] ?? raw.code,
@@ -47,6 +54,7 @@ function toCountry(raw: RawCountry): Country {
 
   return {
     code: raw.code,
+    kind: isCountry(raw.code) ? 'country' : 'special-region',
     ...(raw.numeric ? { numericCode: raw.numeric } : {}),
     name,
     aliases,
@@ -55,22 +63,42 @@ function toCountry(raw: RawCountry): Country {
   };
 }
 
-const countries: readonly Country[] = RAW_COUNTRIES.filter((raw) =>
-  isMarkableCountry(raw.code),
-).map(toCountry);
+const markable: readonly Country[] = [...RAW_COUNTRIES, ...EXTRA_COUNTRIES]
+  .filter((raw) => isMarkable(raw.code))
+  .map(toMarkable)
+  .sort((a, b) => a.code.localeCompare(b.code));
 
-const byCode: ReadonlyMap<CountryCode, Country> = new Map(countries.map((c) => [c.code, c]));
+const countries: readonly Country[] = markable.filter((c) => c.kind === 'country');
 
-/** All 197 markable countries (195 + Kosovo + Taiwan), ordered by code. */
+const byCode: ReadonlyMap<CountryCode, Country> = new Map(markable.map((c) => [c.code, c]));
+
+/** The 198 countries, ordered by code. */
 export function listCountries(): readonly Country[] {
   return countries;
 }
 
-/** The country for a code, or undefined if the code is not a markable country. */
+/** Everything that can be marked (the 198 countries and Antarctica), ordered by code. */
+export function listMarkable(): readonly Country[] {
+  return markable;
+}
+
+/** The country for a code, or undefined if the code is not one of the 198 countries. */
 export function getCountry(code: CountryCode): Country | undefined {
+  const found = byCode.get(code);
+  return found?.kind === 'country' ? found : undefined;
+}
+
+/** A country or special region for a code, or undefined if it cannot be marked. */
+export function getMarkable(code: CountryCode): Country | undefined {
   return byCode.get(code);
 }
 
+/** Everything markable on a continent; Antarctica is the special region AQ. */
+export function getMarkableByContinent(continent: Continent): readonly Country[] {
+  return markable.filter((item) => item.continent === continent);
+}
+
+/** Countries only (no special regions) on a continent. */
 export function getCountriesByContinent(continent: Continent): readonly Country[] {
   return countries.filter((country) => country.continent === continent);
 }

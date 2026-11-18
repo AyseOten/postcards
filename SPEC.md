@@ -39,13 +39,13 @@ Turkish-speaking travelers aged roughly 20–40 who follow travel accounts on In
 - Lists grouped by status, sorted with Turkish collation, each item removable.
 
 ### 5.4 Travel stats
-- Countries visited (visited + lived), percentage of the world (out of 195), continents visited (out of 7).
+- Countries visited (visited + lived), percentage of the world (out of 198: the 193 UN members, Vatican, Palestine, Kosovo, Taiwan and Northern Cyprus; see `docs/decisions/0005-cyprus-and-de-facto-states.md`), continents visited (out of 7; Antarctica can be marked as a special region).
 - Most visited continent, first trip (earliest first visit year), latest country added, countries lived in, wishlist size.
 - Traveler title: 0 "Yola çıkmaya hazır", 1–4 "Hafta Sonu Kâşifi", 5–14 "Pasaport Koleksiyoncusu", 15–29 "Sınır Avcısı", 30–49 "Dünya Gezgini", 50+ "Efsane Göçebe".
 
 ### 5.5 Digital passport
 - A stamp for every visited or lived country.
-- Collections with progress: first 5, 10, 25, 50 countries; every continent; regions (Mediterranean, Balkans, Scandinavia, Southeast Asia, South America).
+- Collections with progress: first 5, 10, 25, 50 countries; every continent; regions (Mediterranean, Balkans, Scandinavia & Nordics, Southeast Asia, South America).
 - When a collection is completed, show a short celebration.
 - Stamps and collections are computed from marks (`getStamps`, `getCollections`); nothing extra is stored.
 

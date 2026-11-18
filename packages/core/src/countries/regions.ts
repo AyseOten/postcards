@@ -3,7 +3,7 @@ import type { CountryCode } from '../types';
 export const REGION_IDS = [
   'mediterranean',
   'balkans',
-  'scandinavia',
+  'nordic',
   'southeast-asia',
   'south-america',
 ] as const;
@@ -17,7 +17,7 @@ export interface Region {
   countries: readonly CountryCode[];
 }
 
-/** Curated regions used by the passport collections (SPEC.md §5.5). Display names come from i18n. */
+/** Curated regions used by the passport collections (SPEC.md §5.5, ADR 0002 and 0005). Display names come from i18n. */
 export const REGIONS: readonly Region[] = [
   {
     id: 'mediterranean',
@@ -26,7 +26,7 @@ export const REGIONS: readonly Region[] = [
     // prettier-ignore
     countries: [
       'AL', 'BA', 'CY', 'DZ', 'EG', 'ES', 'FR', 'GR', 'HR', 'IL', 'IT',
-      'LB', 'LY', 'MA', 'MC', 'ME', 'MT', 'PS', 'SI', 'SY', 'TN', 'TR',
+      'LB', 'LY', 'MA', 'MC', 'ME', 'MT', 'PS', 'SI', 'SY', 'TN', 'TR', 'XN',
     ],
   },
   {
@@ -36,10 +36,10 @@ export const REGIONS: readonly Region[] = [
     countries: ['AL', 'BA', 'BG', 'GR', 'HR', 'ME', 'MK', 'RS', 'XK'],
   },
   {
-    id: 'scandinavia',
+    id: 'nordic',
     basis:
-      'The three Scandinavian kingdoms in the narrow, historical and linguistic sense; Finland and Iceland are Nordic but not Scandinavian.',
-    countries: ['DK', 'NO', 'SE'],
+      'The five Nordic countries (Nordic Council members): the Scandinavian kingdoms plus Finland and Iceland. Shown as "İskandinavya ve Kuzey".',
+    countries: ['DK', 'FI', 'IS', 'NO', 'SE'],
   },
   {
     id: 'southeast-asia',

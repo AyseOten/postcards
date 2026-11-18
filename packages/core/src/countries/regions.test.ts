@@ -1,4 +1,4 @@
-import { getCountriesByContinent, getCountry, isMarkableCountry } from './index';
+import { getCountriesByContinent, getCountry, isCountry } from './index';
 import { REGION_IDS, REGIONS } from './regions';
 
 const region = (id: string) => REGIONS.find((r) => r.id === id);
@@ -15,7 +15,7 @@ describe('REGIONS', () => {
       expect(new Set(r.countries).size).toBe(r.countries.length);
       expect([...r.countries].sort()).toEqual([...r.countries]);
       for (const code of r.countries) {
-        expect(isMarkableCountry(code)).toBe(true);
+        expect(isCountry(code)).toBe(true);
       }
     },
   );
@@ -31,8 +31,16 @@ describe('REGIONS', () => {
     }
   });
 
-  it('Scandinavia is entirely in Europe', () => {
-    for (const code of region('scandinavia')?.countries ?? []) {
+  it('Scandinavia & Nordics has the five Nordic countries (ADR 0005)', () => {
+    expect(region('nordic')?.countries).toEqual(['DK', 'FI', 'IS', 'NO', 'SE']);
+  });
+
+  it('the Mediterranean includes both Cyprus and Northern Cyprus', () => {
+    expect(region('mediterranean')?.countries).toEqual(expect.arrayContaining(['CY', 'XN']));
+  });
+
+  it('Scandinavia & Nordics is entirely in Europe', () => {
+    for (const code of region('nordic')?.countries ?? []) {
       expect(getCountry(code)?.continent).toBe('EU');
     }
   });

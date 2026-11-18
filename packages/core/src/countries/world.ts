@@ -1,11 +1,15 @@
 import type { CountryCode } from '../types';
 
 /**
- * Which places count as countries, and which of them count toward "percentage of the world".
- * This file is the single place where that rule is defined.
+ * Which places can be marked, which of them are countries, and what counts toward
+ * "percentage of the world". This file is the single place where these rules are defined
+ * (ADR 0002, amended by ADR 0005).
  *
- * Source: United Nations, Member States (https://www.un.org/en/about-us/member-states)
- * and Non-member States with observer status (https://www.un.org/en/about-us/non-member-states).
+ * Rule: every country that can be marked counts toward the world percentage (198).
+ *
+ * Source for the UN lists: United Nations, Member States
+ * (https://www.un.org/en/about-us/member-states) and Non-member States
+ * (https://www.un.org/en/about-us/non-member-states).
  */
 
 /** The 193 UN member states. */
@@ -30,40 +34,61 @@ export const UN_MEMBER_CODES = [
 export const UN_OBSERVER_CODES = ['PS', 'VA'] as const satisfies readonly CountryCode[];
 
 /**
- * Countries outside the UN list that can still be marked. They count for country totals,
- * stamps and collections, but not for the world percentage.
- * XK (Kosovo) is a user-assigned code, widely used for Kosovo but not part of ISO 3166-1.
+ * Countries outside the UN lists that are markable and counted like any other country
+ * (country totals, stamps, collections and the world percentage). See ADR 0005.
+ * - TW: Taiwan (ISO 3166-1).
+ * - XK: Kosovo. User-assigned code, widely used; not part of ISO 3166-1.
+ * - XN: Northern Cyprus (Kuzey Kıbrıs Türk Cumhuriyeti). User-assigned code chosen for
+ *   Postcards; ISO never assigns codes in the X range, so it cannot clash with a future code.
  */
-export const OTHER_COUNTRY_CODES = ['TW', 'XK'] as const satisfies readonly CountryCode[];
+export const OTHER_COUNTRY_CODES = ['TW', 'XK', 'XN'] as const satisfies readonly CountryCode[];
 
-/** Denominator of the world percentage: 193 UN members + 2 observer states. */
-export const WORLD_COUNTRY_TOTAL = 195;
+/**
+ * Places that can be marked but are not countries: they count toward continents and the
+ * all-continents collection, not toward country totals or the world percentage (ADR 0005).
+ */
+export const SPECIAL_REGION_CODES = ['AQ'] as const satisfies readonly CountryCode[];
 
-const worldTotalCodes: ReadonlySet<CountryCode> = new Set<CountryCode>([
+const countryCodes: ReadonlySet<CountryCode> = new Set<CountryCode>([
   ...UN_MEMBER_CODES,
   ...UN_OBSERVER_CODES,
-]);
-
-const markableCodes: ReadonlySet<CountryCode> = new Set<CountryCode>([
-  ...worldTotalCodes,
   ...OTHER_COUNTRY_CODES,
 ]);
 
-/** All codes that can be marked as visited, lived or wishlist (197). */
-export const MARKABLE_COUNTRY_CODES: readonly CountryCode[] = [...markableCodes].sort();
+const specialRegionCodes: ReadonlySet<CountryCode> = new Set<CountryCode>(SPECIAL_REGION_CODES);
 
-export function isMarkableCountry(code: CountryCode): boolean {
-  return markableCodes.has(code);
+/** All 198 countries, sorted by code. */
+export const COUNTRY_CODES: readonly CountryCode[] = [...countryCodes].sort();
+
+/** Everything that can be marked as visited, lived or wishlist: the 198 countries and AQ. */
+export const MARKABLE_CODES: readonly CountryCode[] = [
+  ...countryCodes,
+  ...specialRegionCodes,
+].sort();
+
+/** Denominator of the world percentage: every country (193 UN + 2 observers + TW, XK, XN). */
+export const WORLD_COUNTRY_TOTAL = COUNTRY_CODES.length;
+
+export function isCountry(code: CountryCode): boolean {
+  return countryCodes.has(code);
 }
 
-/** True only for the 195 countries in the world-percentage denominator. */
+export function isSpecialRegion(code: CountryCode): boolean {
+  return specialRegionCodes.has(code);
+}
+
+export function isMarkable(code: CountryCode): boolean {
+  return isCountry(code) || isSpecialRegion(code);
+}
+
+/** True for the 198 countries; false for AQ, territories and unknown codes. */
 export function countsTowardWorldTotal(code: CountryCode): boolean {
-  return worldTotalCodes.has(code);
+  return isCountry(code);
 }
 
 /**
- * Percentage (0–100, not rounded) of the 195 countries among the given codes.
- * Duplicates and codes outside the 195 (e.g. XK, TW, territories) are ignored.
+ * Percentage (0–100, not rounded) of the 198 countries among the given codes.
+ * Duplicates, AQ, territories and unknown codes are ignored.
  */
 export function getWorldPercent(codes: Iterable<CountryCode>): number {
   const counted = new Set<CountryCode>();

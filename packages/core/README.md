@@ -7,7 +7,8 @@ Pure TypeScript domain logic shared by web, mobile and server: types, country re
 | File | What it is |
 | --- | --- |
 | `src/countries/data.generated.ts` | Raw data from the sources below. Generated; do not edit by hand. |
-| `src/countries/world.ts` | Which codes are countries, and which count toward "percentage of the world". |
+| `src/countries/world.ts` | Which codes are countries or special regions, and the world-percentage rule. |
+| `src/countries/extra-countries.ts` | Countries the sources do not have (XN), maintained by hand. |
 | `src/countries/names.ts` | Display names that differ from the source. |
 | `src/countries/continent-overrides.ts` | The single continent of each country that spans two, plus corrections. |
 | `src/countries/regions.ts` | Curated regions for passport collections, each with its basis. |
@@ -25,12 +26,13 @@ Both packages are dev dependencies: they are only read by the generator, so the 
 
 ### Rules
 
-- **Countries (197):** the 193 UN members, the 2 observer states (VA, PS), Kosovo (XK) and Taiwan (TW). All can be marked; they count for country totals, stamps and collections.
-- **World percentage:** only the 195 UN members and observers count (`countsTowardWorldTotal`, `getWorldPercent`). Kosovo and Taiwan do not.
-- **Territories** (Greenland, Puerto Rico, …) are in the raw data but are not countries; how the map treats them is decided with the map geometry.
+- **Countries (198):** the 193 UN members, the 2 observer states (VA, PS), Taiwan (TW), Kosovo (XK) and Northern Cyprus (XN). All can be marked and count for country totals, stamps, collections and the world percentage (ADR 0005).
+- **World percentage:** the number of distinct countries out of 198 (`WORLD_COUNTRY_TOTAL`, `getWorldPercent`).
+- **Special region:** Antarctica (AQ) can be marked. It counts toward continents and the all-continents collection, but not as a country (`kind: 'special-region'`, `listMarkable()`).
+- **Territories** (Greenland, Puerto Rico, …) are in the raw data but cannot be marked in v0.1; the map draws them grey.
 - **Display name:** the override in `names.ts`, otherwise the first source name. All other source names are kept as `aliases` for search.
 - **Continent:** the decision in `continent-overrides.ts`, otherwise the primary continent in `countries-list`. Tests fail if a country spanning two continents has no explicit decision.
-- **Codes:** ISO 3166-1 alpha-2 everywhere. XK is a user-assigned code; its numeric code `983` is user-assigned too.
+- **Codes:** ISO 3166-1 alpha-2 everywhere, plus two user-assigned X codes: XK (Kosovo, numeric `983`, also user-assigned) and XN (Northern Cyprus, no numeric code).
 
 ### Regenerating
 

@@ -1,36 +1,51 @@
 import { isCountryCodeFormat } from '../types';
 import { RAW_COUNTRIES } from './data.generated';
+import { EXTRA_COUNTRIES } from './extra-countries';
 import {
   CONTINENT_DECISIONS,
   CONTINENTS,
+  COUNTRY_CODES,
   DISPLAY_NAME_OVERRIDES,
   getCountriesByContinent,
   getCountry,
+  getMarkable,
+  getMarkableByContinent,
   isContinent,
-  isMarkableCountry,
+  isCountry,
+  isMarkable,
   listCountries,
-  MARKABLE_COUNTRY_CODES,
+  listMarkable,
+  MARKABLE_CODES,
 } from './index';
 
 const countries = listCountries();
-const rawByCode = new Map(RAW_COUNTRIES.map((raw) => [raw.code, raw]));
+const allRaw = [...RAW_COUNTRIES, ...EXTRA_COUNTRIES];
+const rawByCode = new Map(allRaw.map((raw) => [raw.code, raw]));
 
-describe('generated source data', () => {
-  it('contains every markable country', () => {
-    for (const code of MARKABLE_COUNTRY_CODES) {
+describe('source data', () => {
+  it('contains everything that can be marked', () => {
+    for (const code of MARKABLE_CODES) {
       expect(rawByCode.has(code)).toBe(true);
     }
   });
 
-  it('has unique codes', () => {
-    expect(rawByCode.size).toBe(RAW_COUNTRIES.length);
+  it('has unique codes across generated and hand-maintained entries', () => {
+    expect(rawByCode.size).toBe(allRaw.length);
+  });
+
+  it('only adds hand-maintained entries the sources do not have', () => {
+    const generated = new Set(RAW_COUNTRIES.map((raw) => raw.code));
+    for (const extra of EXTRA_COUNTRIES) {
+      expect(generated.has(extra.code)).toBe(false);
+    }
   });
 });
 
 describe('listCountries', () => {
-  it('returns the 197 markable countries, ordered by code', () => {
+  it('returns the 198 countries, ordered by code', () => {
     const codes = countries.map((country) => country.code);
-    expect(codes).toEqual([...MARKABLE_COUNTRY_CODES]);
+    expect(codes).toEqual([...COUNTRY_CODES]);
+    expect(countries.every((c) => c.kind === 'country')).toBe(true);
   });
 
   it.each(countries.map((c) => [c.code, c] as const))('%s is complete', (code, country) => {
@@ -47,17 +62,38 @@ describe('listCountries', () => {
     }
   });
 
-  it('has a unique 3-digit numeric code for every country', () => {
-    const numericCodes = countries.map((country) => country.numericCode);
-    expect(new Set(numericCodes).size).toBe(countries.length);
+  it('has a unique 3-digit numeric code for every country except Northern Cyprus', () => {
+    const withCode = countries.filter((country) => country.code !== 'XN');
+    const numericCodes = withCode.map((country) => country.numericCode);
+    expect(new Set(numericCodes).size).toBe(withCode.length);
     for (const numericCode of numericCodes) {
       expect(numericCode).toMatch(/^\d{3}$/);
     }
+    expect(getCountry('XN')?.numericCode).toBeUndefined();
   });
 
-  it('marks only Kosovo and Taiwan as outside the world total', () => {
-    const outside = countries.filter((c) => !c.countsTowardWorldTotal).map((c) => c.code);
-    expect(outside).toEqual(['TW', 'XK']);
+  it('counts every country toward the world total (ADR 0005)', () => {
+    expect(countries.every((c) => c.countsTowardWorldTotal)).toBe(true);
+  });
+});
+
+describe('listMarkable', () => {
+  it('returns the 198 countries and Antarctica', () => {
+    expect(listMarkable().map((item) => item.code)).toEqual([...MARKABLE_CODES]);
+  });
+
+  it('marks Antarctica as a special region outside the world total', () => {
+    expect(getMarkable('AQ')).toMatchObject({
+      code: 'AQ',
+      kind: 'special-region',
+      name: { tr: 'Antarktika', en: 'Antarctica' },
+      continent: 'AN',
+      countsTowardWorldTotal: false,
+    });
+  });
+
+  it.each(['GL', 'PR', 'EH', 'XX'])('cannot mark %p', (code) => {
+    expect(getMarkable(code)).toBeUndefined();
   });
 });
 
@@ -81,7 +117,26 @@ describe('getCountry', () => {
     const kosovo = getCountry('XK');
     expect(kosovo?.name.tr).toBe('Kosova');
     expect(kosovo?.numericCode).toBe('983');
-    expect(kosovo?.countsTowardWorldTotal).toBe(false);
+    expect(kosovo?.countsTowardWorldTotal).toBe(true);
+  });
+
+  it('returns Cyprus and Northern Cyprus as two countries (ADR 0005)', () => {
+    expect(getCountry('CY')).toMatchObject({
+      name: { tr: 'Güney Kıbrıs Rum Kesimi', en: 'Cyprus' },
+      continent: 'EU',
+    });
+    expect(getCountry('XN')).toMatchObject({
+      kind: 'country',
+      name: { tr: 'Kuzey Kıbrıs Türk Cumhuriyeti', en: 'Northern Cyprus' },
+      continent: 'EU',
+      countsTowardWorldTotal: true,
+    });
+  });
+
+  it('finds Northern Cyprus by its search aliases', () => {
+    expect(getCountry('XN')?.aliases).toEqual(
+      expect.arrayContaining(['KKTC', 'Kuzey Kıbrıs', 'TRNC']),
+    );
   });
 
   it.each(['GL', 'PR', 'AQ', 'tr', 'XX'])('returns undefined for %p', (code) => {
@@ -108,7 +163,7 @@ describe('display names and aliases', () => {
 
   it('only overrides markable countries, and only with a different name', () => {
     for (const [code, override] of Object.entries(DISPLAY_NAME_OVERRIDES)) {
-      expect(isMarkableCountry(code)).toBe(true);
+      expect(isCountry(code)).toBe(true);
       const raw = rawByCode.get(code);
       if (override.tr !== undefined) expect(override.tr).not.toBe(raw?.tr[0]);
       if (override.en !== undefined) expect(override.en).not.toBe(raw?.en[0]);
@@ -119,7 +174,7 @@ describe('display names and aliases', () => {
 describe('continents', () => {
   it('has an explicit decision for every multi-continent country in the source', () => {
     const multi = RAW_COUNTRIES.filter(
-      (raw) => isMarkableCountry(raw.code) && raw.continents.length > 1,
+      (raw) => isMarkable(raw.code) && raw.continents.length > 1,
     ).map((raw) => raw.code);
     expect(multi.length).toBeGreaterThan(0);
     for (const code of multi) {
@@ -129,7 +184,7 @@ describe('continents', () => {
 
   it('applies the decisions', () => {
     for (const [code, decision] of Object.entries(CONTINENT_DECISIONS)) {
-      expect(isMarkableCountry(code)).toBe(true);
+      expect(isCountry(code)).toBe(true);
       expect(getCountry(code)?.continent).toBe(decision.continent);
       expect(decision.reason.trim()).not.toBe('');
     }
@@ -142,8 +197,15 @@ describe('continents', () => {
     expect(perContinent.flat()).toHaveLength(countries.length);
   });
 
-  it('has no markable country in Antarctica', () => {
+  it('has no country in Antarctica, only the special region AQ', () => {
     expect(getCountriesByContinent('AN')).toEqual([]);
+    expect(getMarkableByContinent('AN').map((item) => item.code)).toEqual(['AQ']);
+  });
+
+  it('makes all seven continents reachable', () => {
+    for (const continent of CONTINENTS) {
+      expect(getMarkableByContinent(continent).length).toBeGreaterThan(0);
+    }
   });
 
   it('rejects unknown continents', () => {
