@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { DEFAULT_LOCALE, getMessages } from '@postcards/i18n';
-import { colors, toCssVariables } from '@postcards/tokens';
+import { themes, toCssVariables } from '@postcards/tokens';
+import { brandFont } from './fonts';
 import './globals.css';
 
 const messages = getMessages(DEFAULT_LOCALE);
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: colors.light.background },
-    { media: '(prefers-color-scheme: dark)', color: colors.dark.background },
+    { media: '(prefers-color-scheme: light)', color: themes.light.colors.background },
+    { media: '(prefers-color-scheme: dark)', color: themes.dark.colors.background },
   ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={DEFAULT_LOCALE}>
+    <html lang={DEFAULT_LOCALE} className={brandFont.variable}>
       <head>
         {/* Static design tokens from @postcards/tokens, no user input. */}
         <style dangerouslySetInnerHTML={{ __html: tokenStyles }} />
